@@ -1,9 +1,9 @@
-/* General Reset */ 
+/* General Styling */
 body {
   font-family: -apple-system, BlinkMacSystemFont, "San Francisco", "Helvetica Neue", Helvetica, Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #f9f9f9; /* Light background to resemble iOS style */
+  background-color: #f9f9f9;
   color: #333333;
 }
 
@@ -21,93 +21,72 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 20px;
-  background-color: #005197FF; /* Accent color */
+  background-color: #005197FF;
   color: white;
-  border-radius: 12px 12px 0 0; /* Rounded corners for the top */
+  border-radius: 12px 12px 0 0;
 }
 
 header h1 {
   margin: 0;
-  font-size: 1.5rem;
 }
 
 header .beta-box {
-  background-color: #ffffff; /* White background for the Beta box */
-  color: #005197FF; /* Accent color for text */
+  background-color: #ffffff;
+  color: #005197FF;
   padding: 5px 10px;
-  border-radius: 12px; /* Rounded corners for the Beta box */
+  border-radius: 12px;
   font-size: 0.8rem;
-  margin-left: 10px;
 }
 
-header button {
-  background: white;
-  border: none;
-  color: #005197FF; /* Accent color */
-  font-size: 1rem;
-  font-weight: bold;
+#voice-memos-container {
+  padding: 20px;
+}
+
+.voice-controls {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+button {
   padding: 10px 15px;
+  font-size: 1rem;
+  border: none;
   border-radius: 8px;
   cursor: pointer;
 }
 
-header button:hover {
-  background: #e6f0ff;
+button:disabled {
+  background: #d3d3d3;
+  cursor: not-allowed;
 }
 
-#notes-container {
-  padding: 20px;
+#record-btn {
+  background: #005197FF;
+  color: white;
 }
 
-.note {
-  background: #ffffff;
-  border: 1px solid #e0e0e0;
-  border-radius: 12px; /* Rounded corners for notes */
-  padding: 15px;
-  margin-bottom: 15px;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+#stop-btn {
+  background: #ff5c5c;
+  color: white;
 }
 
-.note textarea {
-  font-family: inherit;
-  font-size: 1rem;
-  width: 100%;
-  border: none;
-  outline: none;
-  background: transparent;
-  resize: none;
+#memos-list ul {
+  list-style: none;
+  padding: 0;
 }
 
-.note .delete-note {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  background: #FF3B30; /* Red background for delete button */
-  color: white; /* Delete button text color */
-  border: none;
+#memos-list li {
+  margin-bottom: 10px;
   padding: 10px;
-  border-radius: 12px; /* Rounded for iOS style */
-  font-size: 0.9rem;
-  cursor: pointer;
-}
-
-.note .delete-note:hover {
-  background: #d32f2f;
-}
-
-footer {
-  padding: 10px 20px;
-  text-align: center;
   background: #f9f9f9;
-  font-size: 0.8rem;
-  color: #888888;
-  border-top: 1px solid #e0e0e0;
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.footer-text {
-  font-size: 0.9rem;
-  color: #888888;
+audio {
+  width: calc(100% - 50px);
 }
