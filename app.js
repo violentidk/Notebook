@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-  /** NOTEBOOK FUNCTIONALITY **/
+  /** NOTEBOOK FUNCTIONALI TY **/
 
   const notesContainer = document.getElementById("notes-container");
   const addNoteButton = document.getElementById("add-note-btn");
