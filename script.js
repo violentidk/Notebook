@@ -1,52 +1,34 @@
-// app.js
-document.addEventListener("DOMContentLoaded", () => {
-  const addNoteButton = document.getElementById("add-note");
-  const notesContainer = document.getElementById("notes-container");
+// script.js
+document.addEventListener('DOMContentLoaded', function() {
+  const addNoteButton = document.getElementById('addNoteButton');
+  const notesContainer = document.getElementById('notes-container');
 
-  // Load notes from localStorage
-  const savedNotes = JSON.parse(localStorage.getItem("notes")) || [];
+  // Function to create a new note
+  function createNote() {
+    // Create note div
+    const note = document.createElement('div');
+    note.classList.add('note');
 
-  const saveNotes = () => {
-    localStorage.setItem("notes", JSON.stringify(savedNotes));
-  };
+    // Add textarea to the note
+    const textarea = document.createElement('textarea');
+    textarea.placeholder = "Write your note here...";
 
-  const createNoteElement = (noteText, index) => {
-    const note = document.createElement("div");
-    note.classList.add("note");
-    note.innerHTML = `
-      <textarea>${noteText}</textarea>
-      <button class="delete-note">×</button>
-    `;
+    // Add delete button to the note
+    const deleteButton = document.createElement('button');
+    deleteButton.classList.add('delete-note');
+    deleteButton.textContent = 'X';
 
-    // Update the note in localStorage when text is modified
-    note.querySelector("textarea").addEventListener("input", (e) => {
-      savedNotes[index] = e.target.value;
-      saveNotes();
+    // Delete note functionality
+    deleteButton.addEventListener('click', function() {
+      note.remove();
     });
 
-    // Delete note when the button is clicked
-    note.querySelector(".delete-note").addEventListener("click", () => {
-      savedNotes.splice(index, 1);
-      saveNotes();
-      renderNotes(); // Re-render all notes
-    });
+    // Append elements to the note
+    note.appendChild(textarea);
+    note.appendChild(deleteButton);
+    notesContainer.appendChild(note);
+  }
 
-    return note;
-  };
-
-  const renderNotes = () => {
-    notesContainer.innerHTML = ""; // Clear all notes before re-rendering
-    savedNotes.forEach((note, index) => {
-      notesContainer.appendChild(createNoteElement(note, index));
-    });
-  };
-
-  // Add new note
-  addNoteButton.addEventListener("click", () => {
-    savedNotes.push(""); // Add an empty note
-    saveNotes();
-    renderNotes(); // Re-render notes to include the new one
-  });
-
-  renderNotes(); // Initial render on page load
+  // Event listener for the "Add Note" button
+  addNoteButton.addEventListener('click', createNote);
 });
