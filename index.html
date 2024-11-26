@@ -1,11 +1,10 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Notebook</title>
-  <!-- Link to the CSS file -->
-  <link rel="stylesheet" href="styles.css">
+  <title>Notebook with Voice Memos</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div id="app">
@@ -14,11 +13,18 @@
       <div class="beta-box">
         <span class="beta">Beta</span>
       </div>
-      <button id="addNoteButton">+ Add Note</button>
     </header>
 
-    <div id="notes-container">
-      <!-- Notes will be dynamically added here -->
+    <div id="voice-memos-container">
+      <h2>Voice Memos</h2>
+      <div class="voice-controls">
+        <button id="record-btn">🎙 Start Recording</button>
+        <button id="stop-btn" disabled>⏹ Stop</button>
+      </div>
+      <div id="memos-list">
+        <h3>Saved Memos</h3>
+        <ul id="memos"></ul>
+      </div>
     </div>
 
     <footer>
@@ -26,7 +32,6 @@
     </footer>
   </div>
 
-  <!-- Link to the JavaScript file -->
-  <script src="script.js"></script>
+  <script src="voice-memos.js"></script>
 </body>
 </html>
