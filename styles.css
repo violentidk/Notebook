@@ -1,9 +1,9 @@
-/* styles.css */ 
+/* General Reset */
 body {
   font-family: -apple-system, BlinkMacSystemFont, "San Francisco", "Helvetica Neue", Helvetica, Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #ffffff;
+  background-color: #f9f9f9; /* Light background to resemble iOS style */
   color: #333333;
 }
 
@@ -23,7 +23,7 @@ header {
   padding: 20px;
   background-color: #005197FF; /* Accent color */
   color: white;
-  border-radius: 12px; /* Rounded corners for header */
+  border-radius: 12px 12px 0 0; /* Rounded corners for the top */
 }
 
 header h1 {
@@ -52,7 +52,7 @@ header button {
 }
 
 header button:hover {
-  background: #f0f0f0;
+  background: #e6f0ff;
 }
 
 #notes-container {
@@ -60,14 +60,15 @@ header button:hover {
 }
 
 .note {
-  background: #f9f9f9;
-  border: 1px solid #e5e5e5;
-  border-radius: 15px; /* Increased border-radius for rounded corners */
+  background: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px; /* Rounded corners for notes */
   padding: 15px;
   margin-bottom: 15px;
   position: relative;
   display: flex;
   flex-direction: column;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .note textarea {
@@ -84,15 +85,29 @@ header button:hover {
   position: absolute;
   top: 10px;
   right: 10px;
-  background: #FF3B30; /* Red background */
+  background: #FF3B30; /* Red background for delete button */
   color: white; /* Delete button text color */
   border: none;
-  padding: 10px 15px;
-  border-radius: 5px; /* Rounded square */
+  padding: 10px;
+  border-radius: 12px; /* Rounded for iOS style */
   font-size: 0.9rem;
   cursor: pointer;
 }
 
 .note .delete-note:hover {
-  background: #e60000; /* Darker red on hover */
+  background: #d32f2f;
+}
+
+footer {
+  padding: 10px 20px;
+  text-align: center;
+  background: #f9f9f9;
+  font-size: 0.8rem;
+  color: #888888;
+  border-top: 1px solid #e0e0e0;
+}
+
+.footer-text {
+  font-size: 0.9rem;
+  color: #888888;
 }
