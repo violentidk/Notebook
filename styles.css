@@ -1,0 +1,89 @@
+/* styles.css */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "San Francisco", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #ffffff;
+  color: #333333;
+}
+
+#app {
+  max-width: 600px;
+  margin: 20px auto;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: #007aff;
+  color: white;
+  border-radius: 12px 12px 0 0;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+header button {
+  background: white;
+  border: none;
+  color: #007aff;
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 10px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+header button:hover {
+  background: #f0f0f0;
+}
+
+#notes-container {
+  padding: 20px;
+}
+
+.note {
+  background: #f9f9f9;
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 15px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.note textarea {
+  font-family: inherit;
+  font-size: 1rem;
+  width: 100%;
+  border: none;
+  outline: none;
+  background: transparent;
+  resize: none;
+}
+
+.note .delete-note {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: #ff3b30;
+  color: white;
+  border: none;
+  padding: 8px;
+  border-radius: 50%;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.note .delete-note:hover {
+  background: #d32f2f;
+}
