@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", function () {
     notesContainer.appendChild(noteDiv);
   };
 
-  // Add new note
+  // Add new note 
   addNoteButton.addEventListener("click", () => {
     createNoteElement();
   });
