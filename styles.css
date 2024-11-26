@@ -31,9 +31,12 @@ header h1 {
   font-size: 1.5rem;
 }
 
-header .beta {
+header .beta-box {
+  background-color: #ffffff; /* White background for the Beta box */
+  color: #005197FF; /* Accent color for text */
+  padding: 5px 10px;
+  border-radius: 12px; /* Rounded corners for the Beta box */
   font-size: 0.8rem;
-  color: #d3d3d3; /* Light gray color */
   margin-left: 10px;
 }
 
