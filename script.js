@@ -1,34 +1,52 @@
-// script.js
-document.addEventListener('DOMContentLoaded', function() {
-  const addNoteButton = document.getElementById('addNoteButton');
-  const notesContainer = document.getElementById('notes-container');
+document.addEventListener("DOMContentLoaded", function () {
+  const notesContainer = document.getElementById("notes-container");
+  const addNoteButton = document.getElementById("addNoteButton");
 
-  // Function to create a new note
-  function createNote() {
-    // Create note div
-    const note = document.createElement('div');
-    note.classList.add('note');
+  // Load existing notes from localStorage
+  const loadNotes = () => {
+    const notes = JSON.parse(localStorage.getItem("notes")) || [];
+    notes.forEach((note) => {
+      createNoteElement(note);
+    });
+  };
 
-    // Add textarea to the note
-    const textarea = document.createElement('textarea');
+  // Save notes to localStorage
+  const saveNotes = () => {
+    const notes = [];
+    document.querySelectorAll(".note textarea").forEach((textarea) => {
+      notes.push(textarea.value);
+    });
+    localStorage.setItem("notes", JSON.stringify(notes));
+  };
+
+  // Create a new note element
+  const createNoteElement = (content = "") => {
+    const noteDiv = document.createElement("div");
+    noteDiv.classList.add("note");
+
+    const textarea = document.createElement("textarea");
+    textarea.value = content;
     textarea.placeholder = "Write your note here...";
+    textarea.addEventListener("input", saveNotes);
 
-    // Add delete button to the note
-    const deleteButton = document.createElement('button');
-    deleteButton.classList.add('delete-note');
-    deleteButton.textContent = 'X';
-
-    // Delete note functionality
-    deleteButton.addEventListener('click', function() {
-      note.remove();
+    const deleteButton = document.createElement("button");
+    deleteButton.classList.add("delete-note");
+    deleteButton.textContent = "×";
+    deleteButton.addEventListener("click", () => {
+      noteDiv.remove();
+      saveNotes();
     });
 
-    // Append elements to the note
-    note.appendChild(textarea);
-    note.appendChild(deleteButton);
-    notesContainer.appendChild(note);
-  }
+    noteDiv.appendChild(textarea);
+    noteDiv.appendChild(deleteButton);
+    notesContainer.appendChild(noteDiv);
+  };
 
-  // Event listener for the "Add Note" button
-  addNoteButton.addEventListener('click', createNote);
+  // Add new note
+  addNoteButton.addEventListener("click", () => {
+    createNoteElement();
+  });
+
+  // Load notes on page load
+  loadNotes();
 });
