@@ -23,7 +23,7 @@ header {
   padding: 20px;
   background-color: #005197FF; /* Accent color */
   color: white;
-  border-radius: 0; /* Removed rounded corners for header */
+  border-radius: 12px; /* Rounded corners for header */
 }
 
 header h1 {
